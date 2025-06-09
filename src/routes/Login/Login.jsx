@@ -1,28 +1,16 @@
-import { useState, useNavigate } from "react"
+import { useState, useContext, useNavigate } from "react"
 
 import BaseLayout from "../../components/Layout/BaseLayout"
+import { AuthContext } from "../../context/AuthContext";
 
 import "./Login.module.css"
 
 function Login() {
+  const { login } = useContext(AuthContext);
   const [form_data, set_form_data] = useState({
     email: "",
     password: "",
   });
-
-  // a ja imena znaci ne znam sta funkcija radi
-  async function check_if_user_information_is_correct(email, password) {
-    let response = await fetch(`http://localhost:4000/users?email=${encodeURIComponent(email)}`); // json-server filtering action
-    let users = await response.json();
-
-    if (users.length === 0) return alert("Korisnik ne postoji.");
-
-    let user = users[0];
-
-    if (user.password !== password) return alert("Lozinka nije tačna.");
-
-    return alert("Loginovan si!");
-  }
 
   function on_change(e) {
     set_form_data({
@@ -34,7 +22,12 @@ function Login() {
   async function on_submit(e) {
     e.preventDefault();
 
-    await check_if_user_information_is_correct(form_data.email, form_data.password);
+    let login_attempt = await login(form_data.email, form_data.password);
+      
+    if (!login_attempt.success)
+      return alert(login_attempt.error);
+
+    return alert("Logovan!");
   }
 
   return (
@@ -42,7 +35,7 @@ function Login() {
       <form onSubmit={on_submit}>
         <h2>Login</h2>
 
-        <label for="email">E-mail</label>
+        <label hmtlfor="email">E-mail</label>
         <input
           type="text"
           name="email"
@@ -52,7 +45,7 @@ function Login() {
           required
         />
 
-        <label for="password">Lozinka</label>
+        <label hmtlfor="password">Lozinka</label>
         <input
           type="password"
           name="password"

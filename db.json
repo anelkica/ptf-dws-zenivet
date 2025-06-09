@@ -6,6 +6,14 @@
       "prezime": "Baručija",
       "email": "anelkobarucija@gmail.com",
       "password": "anel"
+    },
+    {
+        "id": "admin",
+        "ime": "Faris",
+        "prezime": "Salković",
+        "email": "info@zenivet.ba",
+        "password": "admin",
+        "admin": true
     }
   ]
 }
