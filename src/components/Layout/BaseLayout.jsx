@@ -10,7 +10,6 @@ function BaseLayout({children}) {
             <main className={`content ${styles.content}`}>
                 {children}
             </main>
-            <Footer />
         </div>
     )
 }

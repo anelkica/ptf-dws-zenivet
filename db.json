@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "id": "b2df",
+      "ime": "Anel",
+      "prezime": "Baručija",
+      "email": "anelkobarucija@gmail.com",
+      "password": "anel"
+    }
+  ]
+}

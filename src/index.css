@@ -1,8 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  --primary: #504B38;
+  --secondary: #B9B28A;
+  --tertiary: #EBE5C2;
+
+  --accent: #A31D1D;
+  --background: #F8F3D9;
+
+  --text: #2B2B2B;
+  --text-muted: #6B6755;
+}
+
 * {
     margin: 0;
     padding: 0;
 }
 
 html, body, #root {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+
+    background-color: var(--background);
     height: 100%;
 }
